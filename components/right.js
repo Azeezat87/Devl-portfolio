@@ -3,16 +3,18 @@ import Link from 'next/link'
 import {useState} from 'react'
 import Image from 'next/image'
 
-export default function Right() {
+
+
+export default function Right(props) {
   const [navbar, setNavbar] = useState(false)
-
-
+  
+  
  return (
-   <section className='fixed h-screen w-1/2 bg-[#2e304b] text-[#fd8e8e] flex flex-col items-start p-[30px] transition z-10'>
+   <section className='fixed h-screen w-1/2 bg-[#2e304b] text-[#fd8e8e] flex flex-col items-start p-[30px] z-10'>
      <div className=''>
        <div
          className={[
-           ' p-[30px] w-fit bg-white rounded-2xl',
+           'absolute p-[30px] w-fit bg-white rounded-2xl',
            'overflow-hidden transition-all duration-1000',
            navbar
              ? 'h-fit w-fit rounded-[10px] '
@@ -27,7 +29,9 @@ export default function Right() {
                : 'flex flex-wrap gap-8 items-center mb-8'
            }
          >
-           <span className='flex items-center justify-center bg-[#fd8e8e] rounded-[50%] w-[61px] h-[61px] '>
+           <span
+             style={{backgroundColor: props.theme}}
+             className={'flex items-center justify-center rounded-[50%] w-[61px] bg-[#fd8e8e] h-[61px]' }>
              <Image
                priority
                src='/images/burger.png'
@@ -90,22 +94,30 @@ export default function Right() {
                  </p>
                </li>
              </ul>
+
              <ul className='flex gap-2'>
                <li>
-                 <button className='h-5 w-5 rounded-full bg-[#fd8e8e]'></button>
+                 <button 
+                 onClick={() => props.setTheme(props.colors.red)}
+                 className='h-5 w-5 rounded-full bg-[#fd8e8e]'></button>
                </li>
                <li>
-                 <button className='h-5 w-5 rounded-full bg-[#fde58e]'></button>
+                 <button
+                   onClick={() => props.setTheme(props.colors.amber)} 
+                   className='h-5 w-5 rounded-full bg-[#fde58e]'></button>
                </li>
                <li>
-                 <button className='h-5 w-5 rounded-full bg-[#8efdb0]'></button>
+                 <button 
+                 onClick={() => props.setTheme(props.colors.green)}
+                 className='h-5 w-5 rounded-full bg-[#8efdb0]'></button>
                </li>
              </ul>
            </div>
          </div>
        </div>
 
-       <div className='mt-[72px] ml-8'>
+       <div className='mt-[130px] ml-8'>
+         <div style={{color: props.theme}}>
          <div className='mb-6'>
            <h1 className='text-5xl font-semibold leading-tight'>
              Hello. I’m a freelance user interface developer
@@ -118,11 +130,16 @@ export default function Right() {
              modern frontend web technologies.
            </p>
          </div>
-         <div className='border-2 border-[#fd8e8e] rounded-full w-[217px] py-[14px] px-[29px] flex justify-center mb-10 hover:bg-[#fd8e8e] hover:text-black'>
-           <Link href='#contact'>
+         <div 
+             style={{ borderColor: props.theme, '--bg-color': props.theme }}
+             id='let-work'
+             className='border-2 rounded-full w-[217px] py-[14px] px-[28px] flex justify-center mb-10 hover:text-black whitespace-nowrap'>
+             <Link href='#contact'>
              <p className='text-lg font-semibold'>Let&apos;s work together!</p>
            </Link>
          </div>
+         </div>
+
          <div className='text-[#b5b6bd] text-sm font-semibold'>
            <p>
              Find me at{' '}

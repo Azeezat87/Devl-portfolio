@@ -17,9 +17,11 @@
   margin: 0;
 }
 
-/* html{
+
+
+html{
   scroll-behavior: smooth !important;
-} */
+}
 
 html,
 body {
@@ -30,6 +32,14 @@ body {
 
 .sticky-section{
   @apply min-h-screen w-[50%] ml-auto items-center justify-center sticky top-0;
+}
+
+/* :root {
+  --bg-color: #fd8e8e;
+} */
+
+#let-work:hover{
+ background-color: var(--bg-color)
 }
 
 
