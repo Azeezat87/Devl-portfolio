@@ -10,7 +10,7 @@ export default function Right(props) {
   
   
  return (
-   <section className='fixed h-screen w-1/2 bg-[#2e304b] text-[#fd8e8e] flex flex-col items-start p-[30px] z-10'>
+   <section className='fixed h-screen w-1/2 bg-[#2e304b] text-[#fd8e8e] flex flex-col items-start p-[30px]'>
      <div className=''>
        <div
          className={[

@@ -42,4 +42,9 @@ body {
  background-color: var(--bg-color)
 }
 
+#wrapper{
+ overflow: hidden;
+}
+
+
 
