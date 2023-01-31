@@ -34,9 +34,11 @@ body {
   @apply min-h-screen w-[50%] ml-auto items-center justify-center sticky top-0;
 }
 
-/* :root {
-  --bg-color: #fd8e8e;
-} */
+:root {
+  --red-color: #fd8e8e;
+  --amber-color: #fde58e;
+  --green-color: #8efdb0;
+} 
 
 #let-work:hover{
  background-color: var(--bg-color)

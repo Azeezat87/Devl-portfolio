@@ -3,9 +3,10 @@ import Form from '../components/form'
 import {useState} from 'react'
 
 export default function Contact() {
-  const [booking, setBooking] = useState(false);
-  const [quote, setQuote] = useState(false);
-  const [hello, setHello] = useState(false);
+  // const [booking, setBooking] = useState(false);
+  // const [quote, setQuote] = useState(false);
+  // const [hello, setHello] = useState(false);
+  const [contact, setContact] = useState("")
  
   return (
     <section id='contact' className='sticky-section bg-[#f1f1f1] p-14'>
@@ -25,7 +26,7 @@ export default function Contact() {
       <div>
         <div className='flex items-center mb-8'>
           <button
-            onClick={() => setBooking(true)}
+            onClick={() => setContact('booking')}
             className='bg-[#fd8e8e] h-[60px] w-[60px] rounded-full flex items-center justify-center mr-8'
           >
             <Image
@@ -42,7 +43,7 @@ export default function Contact() {
           </p>
         </div>
 
-        {booking && (
+        {contact === 'booking' && (
           <div className='h-[90%] min-w-7xl absolute top-0 -left-72 p-8 bg-white rounded-lg mt-8 z-10 overflow-hidden flex flex-col'>
             <div className='flex items-center mb-8 z-10'>
               <span className='bg-[#fd8e8e] h-[60px] w-[60px] rounded-full flex items-center justify-center mr-8'>
@@ -58,7 +59,7 @@ export default function Contact() {
               <p className='text-lg text-[#2e304b] font-semibold'>
                 I&apos;d like to book you in
               </p>
-              <button onClick={() => setBooking(false)}>
+              <button onClick={() => setContact('')}>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -75,13 +76,13 @@ export default function Contact() {
                 </svg>
               </button>
             </div>
-            <Form />
+            <Form type={contact} />
           </div>
         )}
 
         <div className='flex items-center mb-8'>
           <button
-            onClick={() => setQuote(true)}
+            onClick={() => setContact('quote')}
             className='bg-[#fde58e] h-[60px] w-[60px] rounded-full flex items-center justify-center mr-8'
           >
             <Image
@@ -98,7 +99,7 @@ export default function Contact() {
           </p>
         </div>
 
-        {quote && (
+        {contact === 'quote' && (
           <div className='h-[90%] min-w-7xl absolute top-0 -left-72 p-8 bg-white rounded-lg mt-8 z-10 overflow-hidden flex flex-col'>
             <div className='flex items-center mb-8 z-10'>
               <span className='bg-[#fde58e] h-[60px] w-[60px] rounded-full flex items-center justify-center mr-8'>
@@ -114,7 +115,7 @@ export default function Contact() {
               <p className='text-lg text-[#2e304b] font-semibold'>
                 I&apos;d like a quote for a project
               </p>
-              <button onClick={() => setQuote(false)}>
+              <button onClick={() => setContact('')}>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -131,13 +132,13 @@ export default function Contact() {
                 </svg>
               </button>
             </div>
-            <Form />
+            <Form type={contact} />
           </div>
         )}
 
         <div className='flex items-center'>
           <button
-            onClick={() => setHello(true)}
+            onClick={() => setContact('hello')}
             className='bg-[#8efdb0] h-[60px] w-[60px] rounded-full flex items-center justify-center mr-8'
           >
             <Image
@@ -154,7 +155,7 @@ export default function Contact() {
           </p>
         </div>
 
-        {hello && (
+        {contact === 'hello' && (
           <div className='h-[90%] min-w-7xl absolute top-0 -left-72 p-8 bg-white rounded-lg mt-8 z-10 overflow-hidden flex flex-col'>
             <div className='flex items-center mb-8 z-10'>
               <span className='bg-[#8efdb0] h-[60px] w-[60px] rounded-full flex items-center justify-center mr-8'>
@@ -170,7 +171,7 @@ export default function Contact() {
               <p className='text-lg text-[#2e304b] font-semibold'>
                 I&apos;d just like to say he
               </p>
-              <button onClick={() => setHello(false)}>
+              <button onClick={() => setContact('')}>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -187,7 +188,7 @@ export default function Contact() {
                 </svg>
               </button>
             </div>
-            <Form />
+            <Form type={contact} />
           </div>
         )}
       </div>

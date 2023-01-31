@@ -1,7 +1,29 @@
 import React from 'react'
-import {useState} from 'react'
+import { useState } from 'react'
 
-export default function Form() {
+const Label = ({text, htmlFor, style}) => (
+  <label htmlFor={htmlFor} style={style} className='text-lg text-[#2e304b] font-semibold'
+  >
+    {text}
+  </label>
+)
+
+const Input = ({type, placeholder, id, name, onChange, value, style}) => (
+  <input
+    required
+    autocomplete='off'
+    type={type}
+    placeholder={placeholder}
+    id={id}
+    name={name}
+    onChange={onChange}
+    value={value}
+    style={style}
+    className='bg-[#f7f7f7] p-4 w-[97%] rounded-[5px] font-medium mt-3 mb-6 focus:outline-none focus:bg-white focus:border-2 focus:border-[#54dcde] transition duration-500'
+  />
+);
+
+export default function Form(props) {
 
   const [formData, setFormData] = useState(
     {
@@ -35,112 +57,86 @@ export default function Form() {
 
   return (
     <form onSubmit={handleSubmit} className='flex-1 overflow-auto'>
-      <label htmlFor='name' className='text-lg text-[#2e304b] font-semibold'>
-        Name
-      </label>
+      <Label htmlFor='name' text='Name' />
       <br />
-      <input
-        required
-        autocomplete='off'
+      <Input
         type='text'
         placeholder='Tom Jones'
         id='name'
         name='name'
         onChange={handleChange}
         value={formData.name}
-        className='bg-[#f7f7f7] p-4 w-[97%] rounded-[5px] font-medium mt-3 mb-6 focus:outline-none focus:bg-white focus:border-2 focus:border-[#54dcde] transition duration-500'
       />
       <br />
-      <label htmlFor='email' className='text-lg text-[#2e304b] font-semibold'>
-        Email
-      </label>
+
+      <Label htmlFor='email' text='Email' />
       <br />
-      <input
-        required
-        autocomplete='off'
+      <Input
         type='email'
         placeholder='hello@example.com'
         id='email'
         name='email'
         onChange={handleChange}
         value={formData.email}
-        className='bg-[#f7f7f7] p-4 w-[97%] rounded-[5px] font-medium mt-3 mb-6 focus:outline-none focus:bg-white focus:border-2 focus:border-[#54dcde] transition duration-500'
       />
       <br />
-      <label htmlFor='company' className='text-lg text-[#2e304b] font-semibold'>
-        Company
-      </label>
+
+      <Label htmlFor='company' text='Company' />
       <br />
-      <input
-        required
-        autocomplete='off'
+      <Input
         type='text'
         placeholder='Google Inc.'
         id='company'
         name='company'
         onChange={handleChange}
         value={formData.company}
-        className='bg-[#f7f7f7] p-4 w-[97%] rounded-[5px] font-medium mt-3 mb-6 focus:outline-none focus:bg-white focus:border-2 focus:border-[#54dcde] transition duration-500'
       />
       <br />
-      <label htmlFor='budget' className='text-lg text-[#2e304b] font-semibold'>
-        Budget
-      </label>
-      <br />
-      <input
-        required
-        type='text'
-        placeholder='$5,000 - $8,000'
-        id='budget'
-        name='budget'
-        onChange={handleChange}
-        value={formData.budget}
-        className='bg-[#f7f7f7] p-4 w-[97%] rounded-[5px] font-medium mt-3 mb-6 focus:outline-none focus:bg-white focus:border-2 focus:border-[#54dcde] transition duration-500'
-      />
-      <br />
-      <div className='flex gap-[28px]'>
-        <div>
-          <label
-            htmlFor='startDate'
-            className='text-lg text-[#2e304b] font-semibold'
-          >
-            Start date
-          </label>
+
+      {props.type !== 'hello' && (
+        <>
+          <Label htmlFor='budget' text='Budget' />
           <br />
-          <input
-            required
-            type='date'
-            id='startDate'
-            name='startDate'
+          <Input
+            type='text'
+            placeholder='$5,000 - $8,000'
+            id='budget'
+            name='budget'
             onChange={handleChange}
-            value={formData.startDate}
-            className='bg-[#f7f7f7] text-[#5f5f6c] p-4 rounded-[5px] font-medium mt-3 mb-6 w-[228px] focus:outline-none focus:bg-white focus:border-2 focus:border-[#54dcde] transition duration-500'
+            value={formData.budget}
           />
-        </div>
-        <div>
-          <label
-            required
-            htmlFor='endDate'
-            className='text-lg text-[#2e304b] font-semibold'
-          >
-            End date
-          </label>
           <br />
-          <input
-            required
-            type='date'
-            id='endDate'
-            name='endDate'
-            onChange={handleChange}
-            value={formData.endDate}
-            className='bg-[#f7f7f7] text-[#5f5f6c] p-4 rounded-[5px] font-medium mt-3 mb-6 w-[228px] focus:outline-none focus:bg-white focus:border-2 focus:border-[#54dcde] transition duration-500'
-          />
-        </div>
-      </div>
-      <br />
-      <label htmlFor='message' className='text-lg text-[#2e304b] font-semibold'>
-        Message
-      </label>
+
+          <div className='flex gap-[28px]'>
+            <div>
+              <Label htmlFor='startDate' text='Start Date' />
+              <br />
+              <Input
+                type='date'
+                id='startDate'
+                name='startDate'
+                onChange={handleChange}
+                value={formData.startDate}
+                style={{ width: '228px', color: '#5f5f6c' }}
+              />
+            </div>
+            <div>
+              <Label htmlFor='endDate' text='End Date' />
+              <br />
+              <Input
+                type='date'
+                id='endDate'
+                name='endDate'
+                onChange={handleChange}
+                value={formData.endDate}
+                style={{ width: '228px', color: '#5f5f6c' }}
+              />
+            </div>
+          </div>
+        </>
+      )}
+
+      <Label htmlFor='message' text='Message' />
       <br />
       <textarea
         required
@@ -153,9 +149,7 @@ export default function Form() {
         className='bg-[#f7f7f7] p-4 w-[97%] rounded-[5px] font-medium mt-3 mb-6 focus:outline-none focus:bg-white focus:border-2 focus:border-[#54dcde] min-h-[45%] transition duration-500'
       />
       <br />
-      <label htmlFor='how' className='text-lg text-[#2e304b] font-semibold'>
-        How did you find me?
-      </label>
+      <Label htmlFor='budget' text='How did you find me?' />
       <br />
       <select
         required
@@ -183,9 +177,11 @@ export default function Form() {
         name='agree'
         className='mr-4'
       />
-      <label htmlFor='agree' className='text-base text-[#717175] font-semibold '>
-        I agree to be a nice person!
-      </label>
+      <Label
+        htmlFor='agree'
+        text='I agree to be a nice person!'
+        style={{ fontSize: '16px', color: '#717175', fontWeight: '600' }}
+      />
       <br />
       <br />
       <button className='border-2 border-[#fd8e8e] rounded-full py-[14px] px-[28px] flex justify-center mb-10 hover:bg-[#fd8e8e] hover:text-black whitespace-nowrap text-lg text-[#fd8e8e] font-semibold'>
