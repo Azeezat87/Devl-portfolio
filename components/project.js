@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Project() {
   return (
-    <section id='project' className='sticky-section bg-white'>
+    <section id='project' className='sticky-section bg-white md:w-full'>
       <div className='p-14'>
         <h1 className='text-[32px] font-semibold text-[#2e304b]'>Projects</h1>
         <p className='text-[#6b6c7b] font-semibold'>

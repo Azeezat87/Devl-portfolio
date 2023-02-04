@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <div className='h-screen overflow-hidden'>
-        <main className='h-screen overflow-y-auto w-screen'>
+        <main className='h-screen overflow-y-auto w-screen scroll-smooth'>
           <Right theme={theme} setTheme={setTheme} colors={colors} />
           <Picture theme={theme} colors={colors}/>
           <About />
