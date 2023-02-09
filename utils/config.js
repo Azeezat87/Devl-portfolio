@@ -2,7 +2,7 @@ export const config = {
   rightPage_twitter: 'https://twitter.com',
   rightPage_github: 'https://github.com',
   rightPage_linkedin: 'https://www.linkedin.com',
-  rightPage_resume: '#',
+  rightPage_resume: '/files/Azeezat-CV.pdf',
   picture_page: '/images/ibrahim.jpg',
   aboutMe_h3: `I enjoy working closely with    design teams to faithfully translate their
          designs right down to the last pixel. Daily, you&apos;ll find me using

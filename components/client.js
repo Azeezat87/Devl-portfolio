@@ -17,7 +17,6 @@ const id = () => Math.random().toString(36);
 export default function Client() {
    
 
-
   return (
     <section className='sticky-section bg-white grid grid-cols-2 gap-0.5 text-xl md:w-full'>
       {config.client_page.map((item, index) => (
