@@ -23,6 +23,11 @@ body {
   font-family: 'Urbanist', sans-serif;
 }
 
+* {
+  cursor: url(/images/cursor2.png), pointer;
+  
+}
+
 .sticky-section{
   @apply min-h-screen w-[50%] ml-auto items-center justify-center sticky top-0;
 }

@@ -24,7 +24,7 @@ export default function Client() {
           title={item.title}
           description={item.description}
         />
-      ))}
+      ))}   
     </section>
   );
 }
@@ -34,7 +34,6 @@ function Card({ title, description }) {
   
   return (
     <div
-      id={id()}
       onMouseOver={() => setIsHovering(true)}
       onMouseOut={() => setIsHovering(false)}
       className='bg-[#f1f1f1] w-full h-full hover:bg-white transition duration-500 ease-in-out'

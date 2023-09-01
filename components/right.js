@@ -31,14 +31,14 @@ export default function Right(props) {
   
  return (
    <section className='fixed h-screen w-1/2 bg-[#2e304b] text-[#fd8e8e] flex flex-col items-start p-[30px] md:w-screen md:sticky md:top-0 md:p-0'>
-     <div className='flex ml-8 flex-col md:pt-20 h-full md:pb-6'>
+     <div className='flex pt-24 pb-8 pl-8 flex-col md:pt-20 h-full md:pb-6'>
          <div style={{ color: props.theme }} className='my-auto'>
-           <div className='mb-6 md:mb-8 '>
+           <div className='mb-5 md:mb-8 '>
              <h1 className='text-5xl font-semibold leading-tight md:text-3xl md:leading-normal md:w-[88%]'>
                Hello. I’m a freelance user interface developer
              </h1>
            </div>
-           <div className='mb-16 md:mb-8'>
+           <div className='mb-14 md:mb-8'>
              <p className='text-[17px] font-semibold w-[80%] md:text-[15px] md:w-[95%]'>
                My name’s Ibrahim Olaitan. I craft user interfaces using modern frontend web technologies.
              </p>
@@ -46,7 +46,7 @@ export default function Right(props) {
            <div
              style={{ borderColor: props.theme, '--bg-color': props.theme }}
              id='let-work'
-             className='border-2 rounded-full w-[217px] py-[14px] px-[28px] flex justify-center mb-10 hover:text-black whitespace-nowrap'
+             className='border-2 rounded-full w-[217px] py-[14px] px-[28px] flex justify-center hover:text-black whitespace-nowrap'
            >
              <Link href='#contact'>
                <p className='text-lg font-semibold md:text-base'>
@@ -78,10 +78,7 @@ export default function Right(props) {
            </p>
            <p>
            Download{' '}
-           <Links 
-               href={config.rightPage_resume}
-               text='my resume'
-             />
+           <a href={config.rightPage_resume} className='text-white underline underline-offset-1' download>my resume</a>
            {' '}
              (PDF 80kb)
            </p>
